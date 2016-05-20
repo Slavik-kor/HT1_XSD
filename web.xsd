@@ -3,28 +3,23 @@
 	xmlns:tns="http://www.example.org/web" elementFormDefault="qualified">
 	<element name="web-app">
 		<complexType>
-			<sequence>
-				<element name="display-name" type="string" minOccurs="1"
-					maxOccurs="unbounded" />
-				<element name="welcome-file-list" type="tns:FileList"
-					minOccurs="1" maxOccurs="unbounded" />
-				<element name="filter" type="tns:Filter" minOccurs="1"
-					maxOccurs="unbounded" />
-				<element name="filter-mapping" type="tns:FilterMapping"
-					minOccurs="1" maxOccurs="unbounded" />
-				<element name="listener" type="tns:Listener" minOccurs="1"
-					maxOccurs="unbounded" />
-				<element name="servlet" type="tns:Servlet" minOccurs="1"
-					maxOccurs="unbounded" />
-				<element name="servlet-mapping" type="tns:ServletMapping"
-					minOccurs="1" maxOccurs="unbounded" />
-				<element name="error-page" type="tns:ErrorPage" minOccurs="1"
-					maxOccurs="unbounded" />
-			</sequence>
+            <sequence>
+            <choice maxOccurs="unbounded">
+					<element name="display-name" type="string" minOccurs="1" maxOccurs="unbounded" />
+					<element name="welcome-file-list" type="tns:FileList" minOccurs="1" maxOccurs="unbounded" />
+					<element name="filter" type="tns:Filter" minOccurs="1" maxOccurs="unbounded"/>
+					<element name="filter-mapping" type="tns:FilterMapping" minOccurs="1" maxOccurs="unbounded" />
+					<element name="listener" type="tns:Listener" minOccurs="1" maxOccurs="unbounded"/>
+					<element name="servlet" type="tns:Servlet" minOccurs="1" maxOccurs="unbounded"/>
+					<element name="servlet-mapping" type="tns:ServletMapping" minOccurs="1" maxOccurs="unbounded"/>
+					<element name="error-page" type="tns:ErrorPage" minOccurs="1" maxOccurs="unbounded" />
+				</choice>
+				</sequence>
 			<attribute name="id" type="string" />
 			<attribute name="version" type="string" />
 		</complexType>
 	</element>
+
 
 	<complexType name="FileList">
 		<sequence>
@@ -76,7 +71,7 @@
 			<element name="location" type="string" />
 		</sequence>
 	</complexType>
-	
+
 	<complexType name="InitParam">
 		<sequence>
 			<element name="param-name" type="string" />
